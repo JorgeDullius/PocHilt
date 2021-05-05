@@ -1,4 +1,4 @@
-package com.example.pochilt
+package com.example.pochilt.core
 
 import androidx.multidex.MultiDexApplication
 import dagger.hilt.android.HiltAndroidApp
