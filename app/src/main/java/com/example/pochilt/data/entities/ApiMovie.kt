@@ -1,4 +1,6 @@
 package com.example.pochilt.data.entities
+
+import com.example.pochilt.domain.entities.Movie
 import com.google.gson.annotations.SerializedName
 
 data class ApiMovie(
@@ -30,4 +32,21 @@ data class ApiMovie(
     val voteAverage: Double?,
     @SerializedName("vote_count")
     val voteCount: Int?
-)
+) {
+    fun toDomainObject() = Movie(
+        adult,
+        backdropPath,
+        genreIds,
+        id,
+        originalLanguage,
+        originalTitle,
+        overview,
+        popularity,
+        posterPath,
+        releaseDate,
+        title,
+        video,
+        voteAverage,
+        voteCount,
+    )
+}

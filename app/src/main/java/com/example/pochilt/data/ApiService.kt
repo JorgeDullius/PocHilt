@@ -1,6 +1,5 @@
 package com.example.pochilt.data
 
-import com.example.pochilt.data.entities.ApiMovie
 import com.example.pochilt.data.entities.ApiMovies
 import retrofit2.http.GET
 

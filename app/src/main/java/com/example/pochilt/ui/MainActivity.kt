@@ -2,11 +2,13 @@ package com.example.pochilt.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import com.example.pochilt.R
 import com.example.pochilt.databinding.ActivityMainBinding
 import com.example.pochilt.ui.home.HomeScreen
+import com.example.pochilt.ui.home.HomeViewModel
 import com.example.pochilt.ui.shared.theme.PocHiltTheme
 import dagger.hilt.android.AndroidEntryPoint
 

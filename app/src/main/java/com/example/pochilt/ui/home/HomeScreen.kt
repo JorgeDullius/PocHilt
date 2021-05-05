@@ -5,14 +5,17 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pochilt.ui.home.composables.MoviesList
 
 @Composable
 fun HomeScreen() {
+    val viewModel: HomeViewModel = viewModel()
+
     Column {
         MoviesListCategory(
             "Discover",
-            listOf("À procura da felicidade", "Scooby-doo", "Scooby-doo", "Scooby-doo")
+            viewModel.movies.value
         )
         MoviesListCategory("Popular", listOf("Avatar", "O exterminador do futuro"))
     }
@@ -30,8 +33,8 @@ fun MoviesListCategory(title: String, movieList: List<String>) {
     }
 }
 
-@Composable
-@Preview
-fun HomeScreenPreview() {
-    HomeScreen()
-}
+//@Composable
+//@Preview
+//fun HomeScreenPreview() {
+//    HomeScreen()
+//}

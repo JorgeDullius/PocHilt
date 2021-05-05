@@ -3,24 +3,28 @@ package com.example.pochilt.di
 import com.example.pochilt.BuildConfig
 import com.example.pochilt.data.ApiService
 import com.example.pochilt.ui.PocHiltApplication
+import com.example.pochilt.utils.API_DATE_FORMAT
 import com.example.pochilt.utils.API_ENDPOINT
 import com.example.pochilt.utils.API_ENDPOINT_NAMED
+import com.example.pochilt.utils.RETROFIT_MOVIES
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 
 @Module
-@InstallIn(PocHiltApplication::class)
+@InstallIn(SingletonComponent::class)
 object ApiProviderModule {
 
     @Provides
     fun provideApiService(
-        @Named("retrofit") retrofit: Retrofit
+        @Named(RETROFIT_MOVIES) retrofit: Retrofit
     ): ApiService {
         return retrofit.create(ApiService::class.java)
     }
@@ -32,6 +36,12 @@ object ApiProviderModule {
     }
 
     @Provides
+    fun provideGson(): Gson {
+        return GsonBuilder().serializeNulls().setDateFormat(API_DATE_FORMAT).create()
+    }
+
+    @Provides
+    @Named(RETROFIT_MOVIES)
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         gson: Gson,
