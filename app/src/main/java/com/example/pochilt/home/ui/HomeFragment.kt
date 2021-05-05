@@ -1,4 +1,4 @@
-package com.example.pochilt
+package com.example.pochilt.home.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
