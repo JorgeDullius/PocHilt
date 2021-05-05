@@ -1,4 +1,4 @@
-package com.example.pochilt.commonui.theme
+package com.example.pochilt.ui.shared.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
