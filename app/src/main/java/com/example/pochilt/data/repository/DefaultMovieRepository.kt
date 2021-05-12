@@ -9,6 +9,10 @@ class DefaultMovieRepository @Inject constructor(
     private val movieService: ApiService
 ) : MovieRepository {
     override suspend fun getPopularMovies(): List<Movie>? {
-        return movieService.getPopularMovies().movies?.map { it.toDomainObject() }
+        return movieService.getPopularMovies()
+            .takeIf { it.isSuccessful }
+            ?.body()
+            ?.movies
+            ?.map { it.toDomainObject() }
     }
 }

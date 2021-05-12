@@ -12,7 +12,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getPopularMovies: GetPopularMovies
 ) : ViewModel() {
-    val movies = mutableStateOf(emptyList<String>())
+    val movies = mutableStateOf(listOf("1", "2", "3", "4"))
 
     init {
         viewModelScope.launch {
